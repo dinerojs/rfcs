@@ -78,7 +78,7 @@ Dinero({ amount: 500 }).convert("EUR", { rates });
 
 ##### Integers & BigInts
 
-Dinero.js v1 uses integers for `amount` (though the `number` primitive), and this shouldn't change, but Dinero.js v2 should also allow for `bigint` [as soon as the proposal goes to stage 4](https://tc39.es/proposal-bigint/).
+Dinero.js v1 uses integers for `amount` (through the `number` primitive), and this shouldn't change, but Dinero.js v2 should also allow for `bigint` [as soon as the proposal goes to stage 4](https://tc39.es/proposal-bigint/).
 
 In the meantime, and to support environments with no `bigint` support, Dinero.js v2 should let users provide their own `Calculator`. This way, they can use whatever library they want and map the calculator functions. This behavior should be made available through a Dinero factory, so it doesn't "pollute" the API.
 
@@ -173,16 +173,16 @@ Helpers solve that problem by letting the user pass information in various forma
 ```js
 import { fromFloat, fromFormat, DineroUSD } from "@dinero.js/helpers";
 
-// returns a Dinero object with `amount` equal to 49999
+// returns a Dinero object with `amount` equal to `49999`
 // and `precision` equal to `2`
 fromFloat({ amount: 499.99 });
 
-// returns a Dinero object with `amount` equal to 15000,
+// returns a Dinero object with `amount` equal to `15000`,
 // `precision` equal to `2` and `currency` equal to `USD`
 // (using the `Currency` service under the hood)
 fromFormat("$150", "$0");
 
-// returns a Dinero object with `amount` equal to 4500
+// returns a Dinero object with `amount` equal to `4500`
 // and precision equal to `2` (using the `Currency` service under the hood)
 DineroUSD(45);
 ```

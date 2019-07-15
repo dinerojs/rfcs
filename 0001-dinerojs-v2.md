@@ -115,8 +115,11 @@ The currency service lets the user pass a `Currency` object instead of a plain s
 import Dinero from "dinero.js";
 import { IQD } from "@dinero.js/currencies";
 
-const d1 = Dinero({ amount: 1000, currency: "IQD" }); // `precision` is set to `2` (default)
-const d2 = Dinero({ amount: 1000, currency: IQD }); // `precision` is automatically set to `3`
+// `precision` is set to `2` (default)
+const d1 = Dinero({ amount: 1000, currency: "IQD" });
+
+// `precision` is automatically set to `3`
+const d2 = Dinero({ amount: 1000, currency: IQD });
 ```
 
 `Currency` objects could also embark the currency's symbol, allowing the library to fully own the currency formatting within the [`toFormat`](https://sarahdayan.github.io/dinero.js/module-Dinero.html#~toFormat) method and liberate itself from its dependency on the I18n API.
@@ -170,9 +173,16 @@ Helpers solve that problem by letting the user pass information in various forma
 ```js
 import { fromFloat, fromFormat, DineroUSD } from "@dinero.js/helpers";
 
-fromFloat({ amount: 499.99 }); // returns a Dinero object with `amount` equal to 49999 and `precision` equal to `2`
+// returns a Dinero object with `amount` equal to 49999
+// and `precision` equal to `2`
+fromFloat({ amount: 499.99 });
 
-fromFormat("$150", "$0"); // returns a Dinero object with `amount` equal to 15000, `precision` equal to `2` and `currency` equal to `USD` (using the `Currency` service under the hood)
+// returns a Dinero object with `amount` equal to 15000,
+// `precision` equal to `2` and `currency` equal to `USD`
+// (using the `Currency` service under the hood)
+fromFormat("$150", "$0");
 
-DineroUSD(45); // returns a Dinero object with `amount` equal to 4500 and precision equal to `2` (using the `Currency` service under the hood)
+// returns a Dinero object with `amount` equal to 4500
+// and precision equal to `2` (using the `Currency` service under the hood)
+DineroUSD(45);
 ```
